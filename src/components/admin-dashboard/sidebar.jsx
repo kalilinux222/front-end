@@ -1,6 +1,13 @@
+import React, { useState } from "react";
+import AddProduct from "../shopping-page/AddProduct";
+import ListProduct from "../shopping-page/ListProduct";
+
 const Sidebar =() => {
+
+  const [tab, setTab] = useState(null);
 return (
     <div className="App">
+      <div>
       <div className="bg-blue-600 ">
         <span
           className="absolute text-white text-4xl top-5 left-4 cursor-pointer"
@@ -54,9 +61,13 @@ return (
                 <span className="text-[15px] ml-4 text-gray-200">Bookmark</span>
               </div>
               <hr className="my-4 text-gray-600" />
-              <div className="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-                <i className="bi bi-envelope-fill"></i>
-                <span className="text-[15px] ml-4 text-gray-200">Messages</span>
+              <div className="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600" onClick={() => setTab("AddProduct")}>
+                <i className="bi bi-cart-plus-fill"></i>
+                <span className="text-[15px] ml-4 text-gray-200">Add Product</span>
+              </div>
+              <div className="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600" onClick={() => setTab("ListProduct")}>
+                <i className="bi bi-cart-fill"></i>
+                <span className="text-[15px] ml-4 text-gray-200">List Product</span>
               </div>
 
               <div className="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600"
@@ -101,7 +112,12 @@ return (
           </div>
         </div>
       </div>
+      </div>
+      <div className="flex-1 lg:ml-64">
+        {tab === "AddProduct" && <AddProduct />}
+        {tab === "ListProduct" && <ListProduct />}
+      </div>
     </div>
-)
+) 
 }
 export default Sidebar;
