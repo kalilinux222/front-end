@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import AddProduct from "../shopping-page/AddProduct";
 import ListProduct from "../shopping-page/ListProduct";
+import AddUser from "../User/AddUser";
+import ListUser from "../User/ListUser";
 
 const Sidebar =() => {
 
@@ -70,6 +72,15 @@ return (
                 <span className="text-[15px] ml-4 text-gray-200">List Product</span>
               </div>
 
+              <div className="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600" onClick={() => setTab("AddUser")}>
+                <i className="bi bi-person-plus-fill"></i>
+                <span className="text-[15px] ml-4 text-gray-200">Add User</span>
+              </div>
+              <div className="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600" onClick={() => setTab("ListUser")}>
+                <i className="bi bi-person-fill"></i>
+                <span className="text-[15px] ml-4 text-gray-200">List User</span>
+              </div>
+
               <div className="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600"
               
               onClick={() => {
@@ -116,6 +127,8 @@ return (
       <div className="flex-1 lg:ml-64">
         {tab === "AddProduct" && <AddProduct />}
         {tab === "ListProduct" && <ListProduct />}
+        {tab === "AddUser" && <AddUser />}
+        {tab === "ListUser" && <ListUser />}
       </div>
     </div>
 ) 
